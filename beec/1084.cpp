@@ -12,9 +12,7 @@ int i = 0, j = 0, k = 0;
 
 using namespace std;
 
-int D, N, qtd_removido;
-char aux;
-string number;
+int D, N;
 
 int main() {
     ios::sync_with_stdio(false);
@@ -22,22 +20,27 @@ int main() {
 
     while (cin >> N >> D) {
         if (N == 0 && D == 0) break;
+        
+        string number;
+        int qtd_removido = 0;
+        char aux;
 
-        qtd_removido = 0;
         cin >> number;
 
-        for_i(0, 10) {
-            aux = i + '0';
+        // for_i(0, 10) {
+        //     aux = i + '0';
 
-            for_j(0, number.size()) {
-                if (qtd_removido == D) goto end;
+        //     for_j(0, number.size()) {
+        //         if (qtd_removido == D) goto end;
 
-                if (number[j] == aux) {
-                    number[j] = ' ';
-                    qtd_removido++;
-                }
-            }
-        }
+        //         if (number[j] == aux) {
+        //             number[j] = ' ';
+        //             qtd_removido++;
+        //         }
+        //     }
+        // }
+
+        
 
         end:
         for (char item : number) {
