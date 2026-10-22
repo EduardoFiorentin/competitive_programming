@@ -20,34 +20,31 @@ int main() {
 
     while (cin >> N >> D) {
         if (N == 0 && D == 0) break;
-        
-        string number;
+
+        vector<char> number;
         int qtd_removido = 0;
         char aux;
 
-        cin >> number;
+        for_i(0, N) {
+            cin >> aux;
 
-        // for_i(0, 10) {
-        //     aux = i + '0';
+            while (!number.empty() && number.back() < aux && qtd_removido < D) {
+                number.pop_back();
+                qtd_removido++;
+            }
 
-        //     for_j(0, number.size()) {
-        //         if (qtd_removido == D) goto end;
-
-        //         if (number[j] == aux) {
-        //             number[j] = ' ';
-        //             qtd_removido++;
-        //         }
-        //     }
-        // }
-
-        
-
-        end:
-        for (char item : number) {
-            if (item != ' ') cout << item;
+            number.push_back(aux);
         }
-        cout << endl << flush;
-    }
 
+        while (qtd_removido < D) {
+            number.pop_back();
+            qtd_removido++;
+        }
+
+        for (auto it : number)
+            cout << it;
+
+        cout << endl;
+    }
     return 0;
 }
